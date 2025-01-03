@@ -1,0 +1,27 @@
+<div class="usuarios-personas-container">
+  <h2>Asociar Usuarios con Personas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Persona</th>
+        <th>Usuario</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let persona of personas">
+        <td>{{ persona.nombre }}</td>
+        <td>
+          <select [(ngModel)]="persona.usuario">
+            <option *ngFor="let usuario of usuarios" [value]="usuario.nombre">
+              {{ usuario.nombre }}
+            </option>
+          </select>
+        </td>
+        <td>
+          <button (click)="asociarUsuario(persona)">Asociar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

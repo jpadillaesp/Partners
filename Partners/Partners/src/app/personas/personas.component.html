@@ -1,0 +1,49 @@
+
+<div class="personas-container">
+  <h1>Gestión de Personas</h1>
+
+  <form (ngSubmit)="guardarPersona()">
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text"
+             id="nombre"
+             [(ngModel)]="persona.nombre"
+             name="nombre"
+             class="form-control"
+             required />
+    </div>
+
+    <div class="form-group">
+      <label for="edad">Edad:</label>
+      <input type="number"
+             id="edad"
+             [(ngModel)]="persona.edad"
+             name="edad"
+             class="form-control"
+             required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</div>
+<div class="personas-container-lst">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of personas">
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.edad }}</td>
+        <td>
+          <button class="btn btn-warning" (click)="editarPersona(p)">Editar</button>
+          <button class="btn btn-danger" (click)="eliminarPersona(p.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

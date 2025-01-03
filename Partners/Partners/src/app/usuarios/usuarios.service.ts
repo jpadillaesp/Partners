@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Usuario } from '../models/usuario.model';  // Importar el modelo Usuario
+import { Usuario } from './usuarios.model';  // Importar el modelo Usuario
 import { environment } from '../../environments/environment';  // Asegúrate de tener este archivo para la URL de la API
 
 @Injectable({

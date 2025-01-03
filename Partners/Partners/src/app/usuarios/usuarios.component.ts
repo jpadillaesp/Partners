@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { UsuariosService } from '../services/usuarios.service';
-import { Usuario } from '../models/usuario.model';
+import { UsuariosService } from '../usuarios/usuarios.service';
+import { Usuario } from './usuarios.model';
 
 @Component({
   selector: 'app-usuarios',
+  standalone: false,
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent implements OnInit {
+  usuario: Usuario = { usuario1: '', id: 0, personaId: 0, persona: null,fechaCreacion:'',password:'' };
   usuarios: Usuario[] = [];
   usuarioSeleccionado: Usuario | null = null; // Para manejar crear/editar
   nuevoUsuario: boolean = false;
@@ -84,5 +86,9 @@ export class UsuariosComponent implements OnInit {
 
   mostrarMensaje(mensaje: string): void {
     this.snackBar.open(mensaje, 'Cerrar', { duration: 3000 });
+  }
+
+  onSubmit() {
+    console.log('Formulario enviado');
   }
 }

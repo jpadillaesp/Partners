@@ -1,6 +1,6 @@
-import { Persona } from '../models/personas.models';
+import { Persona } from '../personas/personas.models';
 export interface Usuario {
-  id: number;
+  id: number | 0;
   usuario1: string;
   password: string;
   fechaCreacion: string;

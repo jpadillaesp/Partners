@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PersonasService } from '../services/personas.services';
-import { Persona } from '../models/personas.models';
+import { PersonasService } from './personas.services';
+import { Persona } from './personas.models';
 
 @Component({
   selector: 'app-personas',
+  standalone: false,
   templateUrl: './personas.component.html',
   styleUrls: ['./personas.component.css']
 })
 export class PersonasComponent implements OnInit {
+  persona: Persona = {nombre:'', id:0, edad:0, correo:''};
   personas: Persona[] = []; // Lista de personas
   personaForm: FormGroup;  // Formulario reactivo
   editMode: boolean = false; // Indica si estamos editando
@@ -94,5 +96,9 @@ export class PersonasComponent implements OnInit {
         error: (err) => console.error('Error al eliminar persona:', err)
       });
     }
+  }
+
+  onSubmit() {
+    console.log('Formulario enviado');
   }
 }
